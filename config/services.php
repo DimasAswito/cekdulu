@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'openfoodfacts' => [
+        'base_url' => env('OFF_BASE_URL', 'https://world.openfoodfacts.org'),
+        'user_agent' => env('OFF_USER_AGENT', 'CekDulu/1.0 (contact: your-email@example.com)'),
+        'cache_ttl_hours' => env('OFF_CACHE_TTL_HOURS', 6),
+    ],
+
 ];
