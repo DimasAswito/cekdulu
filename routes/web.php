@@ -18,7 +18,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('profile.complete')->group(function () {
         Route::get('dashboard', Dashboard::class)->name('dashboard');
         Route::get('products', ProductSearch::class)->name('products.search');
-        Route::get('products/{barcode}', ProductDetail::class)->name('products.show');
+        Route::get('products/{barcode}', ProductDetail::class)->name('products.show')->where('barcode', '[0-9]{6,20}');
         Route::get('history', ScanHistory::class)->name('history.index');
         Route::get('favorites', FavoriteList::class)->name('favorites.index');
     });

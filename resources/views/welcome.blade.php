@@ -37,7 +37,7 @@
 
         <main>
             <section class="max-w-6xl mx-auto px-6 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
-                <div>
+                <div class="animate-fade-in-up">
                     <span class="inline-block text-xs font-semibold text-accent-300 bg-brand-900 px-3 py-1 rounded-full mb-4">
                         Food Label Scanner Personal
                     </span>
@@ -49,7 +49,7 @@
                         kesehatan, alergi, dan target diet kamu — sebelum kamu menyesal makan sesuatu yang salah.
                     </p>
                     <div class="mt-8 flex gap-4">
-                        <a href="{{ route('register') }}" wire:navigate class="bg-accent-400 text-brand-950 px-6 py-3 rounded-lg font-semibold hover:bg-accent-300 transition">
+                        <a href="{{ route('register') }}" wire:navigate class="bg-accent-400 text-brand-950 px-6 py-3 rounded-lg font-semibold hover:bg-accent-300 hover:-translate-y-0.5 transition">
                             Mulai Gratis
                         </a>
                         <a href="{{ route('login') }}" wire:navigate class="px-6 py-3 rounded-lg font-medium text-gray-700 border border-gray-300 hover:bg-gray-50">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="bg-brand-50 border border-brand-100 rounded-2xl p-8">
+                <div class="bg-brand-50 border border-brand-100 rounded-2xl p-8 animate-fade-in-up" style="animation-delay: 100ms">
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
                         <div class="flex items-center gap-3">
                             <span class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-sm">E</span>

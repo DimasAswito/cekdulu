@@ -19,7 +19,7 @@
             <p class="text-sm text-gray-500">Total Scan</p>
             <p class="text-3xl font-bold text-brand-700 mt-1">{{ $totalScans }}</p>
         </div>
-        <a href="{{ route('favorites.index') }}" wire:navigate class="bg-white rounded-xl border border-brand-100 shadow-sm p-5 hover:border-brand-400 transition">
+        <a href="{{ route('favorites.index') }}" wire:navigate class="bg-white rounded-xl border border-brand-100 shadow-sm p-5 hover:border-brand-400 hover:shadow-md hover:-translate-y-0.5 transition">
             <p class="text-sm text-gray-500">Produk Favorit</p>
             <p class="text-3xl font-bold text-brand-700 mt-1">{{ $totalFavorites }}</p>
         </a>

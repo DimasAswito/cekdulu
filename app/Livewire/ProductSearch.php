@@ -65,6 +65,12 @@ class ProductSearch extends Component
             return;
         }
 
+        if (! preg_match('/^[0-9]{6,20}$/', $barcode)) {
+            $this->errorMessage = 'Barcode harus berupa angka (6-20 digit).';
+
+            return;
+        }
+
         $product = $service->findByBarcode($barcode);
 
         if (! $product) {

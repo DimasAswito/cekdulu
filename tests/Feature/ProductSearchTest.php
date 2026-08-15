@@ -76,6 +76,22 @@ test('search by barcode shows an error when product is not found', function () {
         ->assertSet('errorMessage', 'Produk dengan barcode tersebut tidak ditemukan.');
 });
 
+test('search by barcode rejects non-numeric input without calling the openfoodfacts api', function () {
+    Http::fake();
+
+    $user = User::factory()->create();
+
+    Livewire::actingAs($user)
+        ->test(ProductSearch::class)
+        ->set('mode', 'barcode')
+        ->set('query', '123"; DROP TABLE users; --')
+        ->call('searchByBarcode')
+        ->assertNoRedirect()
+        ->assertSet('errorMessage', 'Barcode harus berupa angka (6-20 digit).');
+
+    Http::assertNothingSent();
+});
+
 test('search by name never hits a real openfoodfacts request when http is not faked for an unmatched url', function () {
     Http::fake([
         'world.openfoodfacts.org/*' => Http::response(['products' => []], 200),

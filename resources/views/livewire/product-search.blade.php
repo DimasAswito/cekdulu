@@ -63,9 +63,24 @@
     <div
         x-show="open"
         x-cloak
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
         class="fixed inset-0 z-50 flex items-center justify-center bg-brand-950/80 p-4"
     >
-        <div class="bg-white rounded-2xl shadow-xl max-w-sm w-full p-5">
+        <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="bg-white rounded-2xl shadow-xl max-w-sm w-full p-5"
+        >
             <div class="flex items-center justify-between mb-3">
                 <h3 class="font-semibold text-gray-900">Scan Barcode</h3>
                 <button type="button" x-on:click="stop" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
@@ -91,7 +106,7 @@
                             wire:key="result-{{ $item['code'] ?? $loop->index }}"
                             href="{{ isset($item['code']) ? route('products.show', $item['code']) : '#' }}"
                             wire:navigate
-                            class="bg-white rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md transition p-3 flex flex-col"
+                            class="bg-white rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md hover:-translate-y-0.5 transition p-3 flex flex-col"
                         >
                             <div class="aspect-square w-full bg-gray-50 rounded-lg overflow-hidden mb-3 flex items-center justify-center">
                                 <x-lazy-image

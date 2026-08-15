@@ -14,7 +14,7 @@
     @else
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach ($favorites as $product)
-                <div wire:key="favorite-{{ $product->id }}" class="bg-white rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md transition p-3 flex flex-col">
+                <div wire:key="favorite-{{ $product->id }}" class="bg-white rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md hover:-translate-y-0.5 transition p-3 flex flex-col">
                     <a href="{{ route('products.show', $product->barcode) }}" wire:navigate>
                         <div class="aspect-square w-full bg-gray-50 rounded-lg overflow-hidden mb-3 flex items-center justify-center">
                             <x-lazy-image :src="$product->image_url" :alt="$product->name" />

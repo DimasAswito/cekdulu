@@ -43,15 +43,22 @@ class ProductDetail extends Component
         $this->product = $product;
         $this->warnings = $evaluate(Auth::user(), $product);
         $this->isFavorited = Auth::user()->favoriteProducts()->where('product_id', $product->id)->exists();
+        $this->justScanned = $this->alreadyScannedToday();
     }
 
     public function markScanned(): void
     {
-        if (! $this->product) {
+        if (! $this->product || $this->justScanned) {
             return;
         }
 
         $this->authorize('create', Scan::class);
+
+        if ($this->alreadyScannedToday()) {
+            $this->justScanned = true;
+
+            return;
+        }
 
         Scan::create([
             'user_id' => Auth::id(),
@@ -61,6 +68,14 @@ class ProductDetail extends Component
         ]);
 
         $this->justScanned = true;
+    }
+
+    private function alreadyScannedToday(): bool
+    {
+        return Scan::where('user_id', Auth::id())
+            ->where('product_id', $this->product->id)
+            ->whereDate('scanned_at', now()->toDateString())
+            ->exists();
     }
 
     public function toggleFavorite(): void
