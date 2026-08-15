@@ -107,7 +107,7 @@
         </main>
 
         <footer class="border-t border-gray-100 py-8 text-center text-sm text-gray-500">
-            CekDulu &middot; Portfolio project menggunakan data OpenFoodFacts
+            CekDulu &middot; website ini menggunakan data dari <a href="https://openfoodfacts.org/" target="_blank" class="text-brand-700 hover:underline">OpenFoodFacts</a>
         </footer>
     </body>
 </html>
