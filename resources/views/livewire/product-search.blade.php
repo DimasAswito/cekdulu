@@ -33,7 +33,7 @@
                 <div wire:loading wire:target="query" class="absolute right-3 top-2.5 text-xs text-gray-400">Mencari...</div>
             </div>
         @else
-            <div x-data="barcodeScanner">
+            <div x-data="barcodeScanner()">
                 <form wire:submit="searchByBarcode" class="flex gap-2">
                     <input
                         type="text"

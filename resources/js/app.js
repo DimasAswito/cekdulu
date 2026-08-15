@@ -1,7 +1,7 @@
 import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 
-document.addEventListener('alpine:init', () => {
-    Alpine.data('barcodeScanner', () => ({
+window.barcodeScanner = function () {
+    return {
         open: false,
         error: null,
         scanner: null,
@@ -54,5 +54,5 @@ document.addEventListener('alpine:init', () => {
             }
             this.open = false;
         },
-    }));
-});
+    };
+};
