@@ -4,14 +4,14 @@
         <p class="mt-1 text-sm text-gray-600">Semua produk yang pernah kamu cek.</p>
     </div>
 
-    <div class="bg-white rounded-xl border border-green-100 shadow-sm">
+    <div class="bg-white rounded-xl border border-brand-100 shadow-sm">
         @if ($scans->isEmpty())
             <p class="p-10 text-center text-sm text-gray-500">Belum ada riwayat scan.</p>
         @else
             <ul class="divide-y divide-gray-100">
                 @foreach ($scans as $scan)
                     <li wire:key="scan-{{ $scan->id }}">
-                        <a href="{{ route('products.show', $scan->product->barcode) }}" wire:navigate class="flex items-center gap-4 p-4 hover:bg-green-50/50">
+                        <a href="{{ route('products.show', $scan->product->barcode) }}" wire:navigate class="flex items-center gap-4 p-4 hover:bg-brand-50/50">
                             <x-nutriscore-badge :grade="$scan->product->nutriscore_grade" />
                             <div class="min-w-0 flex-1">
                                 <p class="text-sm font-medium text-gray-900 truncate">{{ $scan->product->name ?? 'Tanpa nama' }}</p>
@@ -25,7 +25,7 @@
                                     {{ count($scan->flags) }} peringatan
                                 </span>
                             @else
-                                <span class="text-xs px-2 py-1 rounded-full bg-green-100 text-green-800">Aman</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-brand-100 text-brand-800">Aman</span>
                             @endif
                         </a>
                     </li>

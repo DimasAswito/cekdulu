@@ -7,21 +7,17 @@
     @if ($favorites->isEmpty())
         <div class="bg-white rounded-xl border border-gray-200 p-12 text-center">
             <p class="text-sm text-gray-500">Kamu belum menyimpan produk favorit.</p>
-            <a href="{{ route('products.search') }}" wire:navigate class="inline-block mt-4 text-green-700 font-medium hover:underline">
+            <a href="{{ route('products.search') }}" wire:navigate class="inline-block mt-4 text-brand-700 font-medium hover:underline">
                 Cari produk
             </a>
         </div>
     @else
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach ($favorites as $product)
-                <div wire:key="favorite-{{ $product->id }}" class="bg-white rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition p-3 flex flex-col">
+                <div wire:key="favorite-{{ $product->id }}" class="bg-white rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md transition p-3 flex flex-col">
                     <a href="{{ route('products.show', $product->barcode) }}" wire:navigate>
                         <div class="aspect-square w-full bg-gray-50 rounded-lg overflow-hidden mb-3 flex items-center justify-center">
-                            @if ($product->image_url)
-                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="object-contain w-full h-full">
-                            @else
-                                <span class="text-gray-300 text-xs">Tidak ada gambar</span>
-                            @endif
+                            <x-lazy-image :src="$product->image_url" :alt="$product->name" />
                         </div>
                         <div class="flex items-start justify-between gap-2">
                             <div class="min-w-0">

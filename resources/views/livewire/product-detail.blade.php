@@ -5,19 +5,15 @@
             <p class="mt-2 text-sm text-gray-600">
                 Barcode <span class="font-mono">{{ $barcode }}</span> tidak ditemukan di database OpenFoodFacts.
             </p>
-            <a href="{{ route('products.search') }}" wire:navigate class="inline-block mt-6 text-green-700 font-medium hover:underline">
+            <a href="{{ route('products.search') }}" wire:navigate class="inline-block mt-6 text-brand-700 font-medium hover:underline">
                 &larr; Kembali cari produk lain
             </a>
         </div>
     @else
-        <div class="bg-white rounded-xl border border-green-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-xl border border-brand-100 shadow-sm overflow-hidden">
             <div class="p-6 sm:p-8 flex flex-col sm:flex-row gap-6">
                 <div class="w-32 h-32 shrink-0 bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center mx-auto sm:mx-0">
-                    @if ($product->image_url)
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="object-contain w-full h-full">
-                    @else
-                        <span class="text-gray-300 text-xs">Tidak ada gambar</span>
-                    @endif
+                    <x-lazy-image :src="$product->image_url" :alt="$product->name" />
                 </div>
 
                 <div class="flex-1 min-w-0">
@@ -40,7 +36,7 @@
                         <button
                             wire:click="markScanned"
                             @disabled($justScanned)
-                            class="px-4 py-2 rounded-lg text-sm font-medium {{ $justScanned ? 'bg-green-100 text-green-700 cursor-default' : 'bg-green-600 text-white hover:bg-green-700' }}"
+                            class="px-4 py-2 rounded-lg text-sm font-medium {{ $justScanned ? 'bg-brand-100 text-brand-700 cursor-default' : 'bg-brand-600 text-white hover:bg-brand-700' }}"
                         >
                             {{ $justScanned ? 'Sudah dicek ✓' : 'Tandai sudah dicek' }}
                         </button>

@@ -22,9 +22,10 @@ new class extends Component
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" wire:navigate>
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                <div class="shrink-0 flex items-center gap-2">
+                    <a href="{{ route('dashboard') }}" wire:navigate class="flex items-center gap-2">
+                        <x-application-logo class="block h-8 w-auto text-brand-700" />
+                        <span class="hidden sm:block text-lg font-bold tracking-tight text-brand-900">CekDulu</span>
                     </a>
                 </div>
 

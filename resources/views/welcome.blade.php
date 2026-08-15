@@ -6,6 +6,9 @@
 
         <title>{{ config('app.name', 'CekDulu') }} — Cek Dulu Sebelum Makan</title>
 
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
@@ -14,19 +17,19 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased font-sans bg-white text-gray-900">
-        <header class="border-b border-green-100">
+        <header class="border-b border-brand-100">
             <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-                <div class="flex items-center gap-2 text-green-700 font-bold text-xl">
-                    <span class="inline-flex w-8 h-8 rounded-full bg-green-600 text-white items-center justify-center text-sm">C</span>
+                <a href="/" class="flex items-center gap-2 text-brand-900 font-bold text-xl">
+                    <x-application-logo class="w-8 h-8 text-brand-700" />
                     CekDulu
-                </div>
+                </a>
 
                 <nav class="flex items-center gap-4">
                     @auth
-                        <a href="{{ route('dashboard') }}" wire:navigate class="text-sm font-medium text-gray-700 hover:text-green-700">Dashboard</a>
+                        <a href="{{ route('dashboard') }}" wire:navigate class="text-sm font-medium text-gray-700 hover:text-brand-700">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" wire:navigate class="text-sm font-medium text-gray-700 hover:text-green-700">Masuk</a>
-                        <a href="{{ route('register') }}" wire:navigate class="text-sm font-medium bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Daftar</a>
+                        <a href="{{ route('login') }}" wire:navigate class="text-sm font-medium text-gray-700 hover:text-brand-700">Masuk</a>
+                        <a href="{{ route('register') }}" wire:navigate class="text-sm font-semibold bg-accent-400 text-brand-950 px-4 py-2 rounded-lg hover:bg-accent-300 transition">Daftar</a>
                     @endauth
                 </nav>
             </div>
@@ -35,7 +38,7 @@
         <main>
             <section class="max-w-6xl mx-auto px-6 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <span class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full mb-4">
+                    <span class="inline-block text-xs font-semibold text-accent-300 bg-brand-900 px-3 py-1 rounded-full mb-4">
                         Food Label Scanner Personal
                     </span>
                     <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">
@@ -46,7 +49,7 @@
                         kesehatan, alergi, dan target diet kamu — sebelum kamu menyesal makan sesuatu yang salah.
                     </p>
                     <div class="mt-8 flex gap-4">
-                        <a href="{{ route('register') }}" wire:navigate class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700">
+                        <a href="{{ route('register') }}" wire:navigate class="bg-accent-400 text-brand-950 px-6 py-3 rounded-lg font-semibold hover:bg-accent-300 transition">
                             Mulai Gratis
                         </a>
                         <a href="{{ route('login') }}" wire:navigate class="px-6 py-3 rounded-lg font-medium text-gray-700 border border-gray-300 hover:bg-gray-50">
@@ -55,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="bg-green-50 border border-green-100 rounded-2xl p-8">
+                <div class="bg-brand-50 border border-brand-100 rounded-2xl p-8">
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
                         <div class="flex items-center gap-3">
                             <span class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-sm">E</span>
@@ -71,22 +74,22 @@
                 </div>
             </section>
 
-            <section class="bg-green-50/60 border-y border-green-100">
+            <section class="bg-brand-50/60 border-y border-brand-100">
                 <div class="max-w-6xl mx-auto px-6 py-16">
                     <h2 class="text-2xl font-bold text-gray-900 text-center">Kenapa pakai CekDulu?</h2>
                     <div class="mt-10 grid sm:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-xl p-6 border border-green-100">
-                            <div class="w-10 h-10 rounded-lg bg-green-600 text-white flex items-center justify-center font-bold mb-4">1</div>
+                        <div class="bg-white rounded-xl p-6 border border-brand-100">
+                            <div class="w-10 h-10 rounded-lg bg-brand-900 text-accent-300 flex items-center justify-center font-bold mb-4">1</div>
                             <h3 class="font-semibold text-gray-900">Cari atau Scan</h3>
                             <p class="mt-2 text-sm text-gray-600">Cari produk dari database OpenFoodFacts berdasarkan nama atau barcode.</p>
                         </div>
-                        <div class="bg-white rounded-xl p-6 border border-green-100">
-                            <div class="w-10 h-10 rounded-lg bg-green-600 text-white flex items-center justify-center font-bold mb-4">2</div>
+                        <div class="bg-white rounded-xl p-6 border border-brand-100">
+                            <div class="w-10 h-10 rounded-lg bg-brand-900 text-accent-300 flex items-center justify-center font-bold mb-4">2</div>
                             <h3 class="font-semibold text-gray-900">Profil Kesehatan</h3>
                             <p class="mt-2 text-sm text-gray-600">Atur kondisi medis, alergi, dan target diet kamu sekali saja.</p>
                         </div>
-                        <div class="bg-white rounded-xl p-6 border border-green-100">
-                            <div class="w-10 h-10 rounded-lg bg-green-600 text-white flex items-center justify-center font-bold mb-4">3</div>
+                        <div class="bg-white rounded-xl p-6 border border-brand-100">
+                            <div class="w-10 h-10 rounded-lg bg-brand-900 text-accent-300 flex items-center justify-center font-bold mb-4">3</div>
                             <h3 class="font-semibold text-gray-900">Peringatan Personal</h3>
                             <p class="mt-2 text-sm text-gray-600">Dapat peringatan otomatis kalau produk tidak cocok untuk kamu.</p>
                         </div>
@@ -97,7 +100,7 @@
             <section class="max-w-6xl mx-auto px-6 py-16 text-center">
                 <h2 class="text-2xl font-bold text-gray-900">Siap cek produk makananmu?</h2>
                 <p class="mt-2 text-gray-600">Gratis, dan datanya di-cache biar cepat.</p>
-                <a href="{{ route('register') }}" wire:navigate class="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700">
+                <a href="{{ route('register') }}" wire:navigate class="inline-block mt-6 bg-accent-400 text-brand-950 px-6 py-3 rounded-lg font-semibold hover:bg-accent-300 transition">
                     Daftar Sekarang
                 </a>
             </section>
