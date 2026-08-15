@@ -58,7 +58,7 @@
                             $isDanger = ($warning['severity'] ?? 'warning') === 'danger';
                         @endphp
                         <div class="rounded-lg border p-4 {{ $isDanger ? 'bg-red-50 border-red-300 text-red-800' : 'bg-yellow-50 border-yellow-300 text-yellow-800' }}">
-                            <p class="font-semibold text-sm">{{ $isDanger ? '⚠ Peringatan Penting' : '⚠ Perhatian' }} — {{ $warning['label'] }}</p>
+                            <p class="font-semibold text-sm">{{ $isDanger ? '⚠ Peringatan Penting' : '⚠ Perhatian' }} - {{ $warning['label'] }}</p>
                             <p class="text-sm mt-1">{{ $warning['message'] }}</p>
                         </div>
                     @endforeach

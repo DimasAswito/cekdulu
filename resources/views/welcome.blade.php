@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'CekDulu') }} — Cek Dulu Sebelum Makan</title>
+        <title>{{ config('app.name', 'CekDulu') }} - Cek Dulu Sebelum Makan</title>
 
         <!-- Favicon -->
         <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
@@ -46,7 +46,7 @@
                     </h1>
                     <p class="mt-5 text-lg text-gray-600 leading-relaxed">
                         Cari atau scan produk makanan, dan dapatkan peringatan personal berdasarkan kondisi
-                        kesehatan, alergi, dan target diet kamu — sebelum kamu menyesal makan sesuatu yang salah.
+                        kesehatan, alergi, dan target diet kamu sebelum kamu menyesal makan sesuatu yang salah.
                     </p>
                     <div class="mt-8 flex gap-4">
                         <a href="{{ route('register') }}" wire:navigate class="bg-accent-400 text-brand-950 px-6 py-3 rounded-lg font-semibold hover:bg-accent-300 hover:-translate-y-0.5 transition">
